@@ -10,13 +10,26 @@ const findAlbumName = async (albumName) => {
     return album;
 };
 
-const createAlbum = async(albumInfor) => {
+const createAlbum = async(albumInFor) => {
     const album = new Album({
-        albumName: albumInfor.albumName,
-        description: albumInfor.description,
+        albumName: albumInFor.albumName,
+        description: albumInFor.description,
     });
+    await album.save();
     return album;
 };
+
+const updateAlbum = async (albumInfo) => {
+    return await Album.updateOne(
+        { _id: albumInfo.albumId },
+        {
+            $set: {
+                albumName: albumInfo.albumName,
+                description: albumInfo.description,
+            },
+        }
+    );
+};
 module.exports = {
-    findAlbumId, findAlbumName, createAlbum
+    findAlbumId, findAlbumName, createAlbum, updateAlbum
 }

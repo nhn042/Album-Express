@@ -23,10 +23,28 @@
 #     "password" :"huunghia042",
 #     "newPassword": "huunghia111"
 # }
-POST http://localhost:3000/album
+
+# POST http://localhost:3000/login
 # Content-Type: application/json
 
 # {
-#     "email": "dangminhhieu3101@gmail.com",
-#     "otp": 7868
+#     "username" : "ere",
+#     "password": "huunghia10"
 # }
+
+# POST http://localhost:3000/album
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmdtaW5oaGlldTMxMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJlcmUiLCJpYXQiOjE2NTk2NzQzOTN9.wNlOLnLnJ9tlBoZ9LLiTR1qoyfvM-xk8m3yXwm13LHQ
+# Content-Type: application/json
+
+# {
+#     "albumName" : "ere",
+#     "description": "huunghia10"
+# }
+PUT http://localhost:3000/album/62ecd9dd821c12d2c4b2deed
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmdtaW5oaGlldTMxMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJlcmUiLCJpYXQiOjE2NTk2NzQzOTN9.wNlOLnLnJ9tlBoZ9LLiTR1qoyfvM-xk8m3yXwm13LHQ
+Content-Type: application/json
+
+{
+    "albumName" : "eree",
+    "description": "huunghia100"
+}

@@ -1,4 +1,5 @@
 const userAlbums = require('./userAlbum.model')
+const album = require('../albums/album.model');
 
 const CreateUserAlbum = async (userId, albumId, role) => {
     const userAlbum = await userAlbums.create({
@@ -9,12 +10,12 @@ const CreateUserAlbum = async (userId, albumId, role) => {
     return userAlbum;
 };
 
-const checkAlbumExist = async (userId, albumname) => {
+const checkAlbumExist = async (userId, albumName) => {
     const userAlbum = await userAlbums.find({ userId }).populate({ path: 'albumId', model: album });
     if (!userAlbum) {
         return false;
     } else {
-        return !!userAlbum.find((item) => item.albumId.albumname === albumname);
+        return !!userAlbum.find((item) => item.albumId.albumName === albumName);
     }
 };
 
@@ -31,16 +32,21 @@ const deleteAlbum = async (userId) => {
     });
 };
 
-const hasPermission = async (userId, albumname) => {
+const hasPermission = async (userId, albumName) => {
     const userAlbum = await userAlbums.find({ userId }).populate({ path: 'albumId', model: album });
-    return userAlbum.find((item) => item.albumId.albumname === albumname).role >= 1 ? true : false;
+    return userAlbum.find((item) => item.albumId.albumName === albumName).role >= 1 ? true : false;
 };
 
-
+const isOwnerAlbum = async (userId, albumName) => {
+    const userAlbum = await userAlbums.find({ userId }).populate({ path: 'albumId', model: album });
+    console.log("111")
+    return userAlbum.find((item) => item.albumId.albumName === albumName).role === 2 ? true : false;
+};
 module.exports = {
     CreateUserAlbum,
     findAlbum,
     deleteAlbum,
     hasPermission,
-    checkAlbumExist
+    checkAlbumExist,
+    isOwnerAlbum
 }

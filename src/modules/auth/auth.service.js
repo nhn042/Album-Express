@@ -25,8 +25,9 @@ const checkLogin = async (username, password) => {
     try{
 
         const user = await userRep.LoginByName(username, password);
+        console.log(user);
         if(user && user.isActive) {
-            return jwt.sign({user}, 'mk');
+            return jwt.sign({email: user.email , username: user.username}, 'nghia');
         } else {
             throw new Error('500', 'login fail');
         }
