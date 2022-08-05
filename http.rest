@@ -1,0 +1,32 @@
+# POST http://localhost:3000/activate
+# Content-Type: application/json
+
+# {
+#     "username" :"huunghia186",
+#     "otp": "12345"
+# }
+
+# POST http://localhost:3000/createUser
+# Content-Type: application/json
+
+# {
+#     "username" :"nghia1912",
+#     "password" :"huunghia042",
+#     "newPassword": "huunghia111",
+
+# }
+# PATCH http://localhost:3000/change-password
+# Content-Type: application/json
+
+# {
+#     "email" :"test@gmail",
+#     "password" :"huunghia042",
+#     "newPassword": "huunghia111"
+# }
+POST http://localhost:3000/album
+# Content-Type: application/json
+
+# {
+#     "email": "dangminhhieu3101@gmail.com",
+#     "otp": 7868
+# }
