@@ -5,6 +5,6 @@ const albumController = require('./album.controller');
 
 router.post('/album', checkLogin, albumController.createAlbum);
 router.put('/album/:id', checkLogin, albumController.updateAlbum);
-//router.delete('/album', checkLogin, albumController.updateAlbum);
+router.delete('/album', checkLogin, albumController.deleteAlbum);
 
 module.exports = router;

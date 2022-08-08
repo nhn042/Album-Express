@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const useRoute = require('./src/modules/users/user.route');
 const authRoute = require('./src/modules/auth/auth.route');
+const userAlbumRoute = require('./src/modules/userAlbum/userAlbum.route')
 const albumRoute = require('./src/modules/albums/album.route');
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(authRoute);
 app.use(useRoute);
 app.use(albumRoute);
+app.use(userAlbumRoute);
 
 mongoose.connection.once('open', () => {
     console.log('Connect to MongoDB');

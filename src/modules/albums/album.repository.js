@@ -30,6 +30,10 @@ const updateAlbum = async (albumInfo) => {
         }
     );
 };
+
+const deleteAlbum = async (albumId) => {
+    return await Album.deleteOne({ _id: albumId });
+};
 module.exports = {
-    findAlbumId, findAlbumName, createAlbum, updateAlbum
+    findAlbumId, findAlbumName, createAlbum, updateAlbum, deleteAlbum
 }

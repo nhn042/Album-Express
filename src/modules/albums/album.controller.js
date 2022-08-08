@@ -43,5 +43,5 @@ const deleteAlbum = async (req, res) => {
 };
 
 module.exports = {
-    createAlbum, updateAlbum,
+    createAlbum, updateAlbum, deleteAlbum
 }

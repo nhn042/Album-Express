@@ -39,7 +39,6 @@ const hasPermission = async (userId, albumName) => {
 
 const isOwnerAlbum = async (userId, albumName) => {
     const userAlbum = await userAlbums.find({ userId }).populate({ path: 'albumId', model: album });
-    console.log("111")
     return userAlbum.find((item) => item.albumId.albumName === albumName).role === 2 ? true : false;
 };
 module.exports = {
